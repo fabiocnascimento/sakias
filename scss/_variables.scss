@@ -1,0 +1,87 @@
+/// Famílias Tipográficas
+$display-family: "Parkinsans", Montserrat, Arial, Helvetica, sans-serif; // h1,h2,h3,h4
+$body-family: "Relaway", Montserrat, Arial, Helvetica, sans-serif; // p,a,span,input,button,label,textarea
+
+/// Font Sizes
+$display-2xl: 3rem; // 48px
+$display-xl: 2.5rem; // 40px
+$display-lg: 2rem; // 32px
+$display-md: 1.75rem; // 28px
+$display-sm: 1.5rem; // 24px
+$heading-base: 1.25rem; // 20px
+$body-base: 1rem; // 16px
+$body-small: 0.875rem; // 14px
+$body-xs: 0.75rem; // 12px
+
+/// Font Weights
+$display-light: 300;
+$display-regular: 400;
+$display-black: 800;
+$body-regular: 400;
+$body-black: 800;
+
+// Brand Colors
+$center-festtas-gold: #d0a44e; //Cor padrão Center Festtas
+$deccora-greend: #054236; //Cor padrão Deccora
+$addorna-pistache: #a4a980; //Cor padrão Addorna
+
+// System Colors
+$primary-dark: #1e1e1e; //Cor padrão de texto
+$seconday-dark: #4e4e4e;
+$tertiary-dark: #4f4f4f;
+$quartary-dark: #bdbdbd;
+$primary-light: #f9f8f4; //Cor padrão de fundo
+$secondary-light: #ffffff;
+$tertiary-light: #f0f0f0;
+
+$primary-blue: #3c51a3;
+
+// Feedback Colors
+$primary-error: #bc0000;
+$secondary-error: #eb5757;
+$primary-success: #219653;
+$secondary-success: #a6d5ba;
+
+// Gradients
+$error-gradient: linear-gradient(-85deg, #bc0000 0%, #eb5757 100%);
+$dark-gray-gradient: linear-gradient(-85deg, #1e1e1e 0%, #4e4e4e 100%);
+
+// Shadow
+$shadow-light: 0px 12px 16px $primary-dark;
+
+// Border Radius Scale - 4 to 48px
+$radius-xs: 0.25rem;
+$radius-sm: 0.5rem;
+$radius-md: 1rem;
+$radius-lg: 1.5rem;
+$radius-xl: 2rem;
+$radius-2xl: 2.5rem;
+$radius-3xl: 3rem;
+$radius-full: 100%; // Fully rounded, pill shape and circles
+
+// Spacing Scale - Paddings, Margins & Gaps - 4 to 200px
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 2.5rem;
+$spacing-3xl: 3rem;
+$spacing-4xl: 3.5rem;
+$spacing-5xl: 4rem;
+$spacing-6xl: 4.5rem;
+$spacing-7xl: 5rem;
+$spacing-8xl: 5.5rem;
+$spacing-9xl: 6rem;
+$spacing-10xl: 6.5rem;
+$spacing-11xl: 7rem;
+$spacing-12xl: 7.5rem;
+$spacing-13xl: 8rem;
+$spacing-14xl: 8.5rem;
+$spacing-15xl: 9rem;
+$spacing-16xl: 9.5rem;
+$spacing-17xl: 10rem;
+$spacing-18xl: 10.5rem;
+$spacing-19xl: 11rem;
+$spacing-20xl: 11.5rem;
+$spacing-21xl: 12rem;

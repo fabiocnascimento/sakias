@@ -1,0 +1,116 @@
+/* Estilos principais extraídos do editor.html */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f9f8f4;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+.primary-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+}
+.primary-logo img {
+  max-width: 160px;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+.secondary-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.secondary-logo img {
+  max-width: 80px;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+.wrapper {
+  flex-wrap: nowrap;
+}
+.container {
+  width: 100%;
+  max-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.info-content {
+  display: flex;
+}
+.editor {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  background-color: #fff;
+  padding: 32px;
+  gap: 40px;
+  border-radius: 16px;
+  border-color: #ccc;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.template {
+  display: flex;
+  flex-direction: column;
+  min-width: 600px;
+  width: 40%;
+  gap: 80px;
+}
+h1 {
+  font-size: 26px;
+  font-weight: 400;
+}
+hr {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  height: 0;
+  margin: 10px 0;
+}
+fieldset {
+  border: 0;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+input[type="text"] {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0;
+  outline: none;
+  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  box-shadow: none;
+  box-sizing: border-box;
+}
+#copiar {
+  background: #cd9d53;
+  border: 0;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+#copiar:hover {
+  background: #b98637;
+}
