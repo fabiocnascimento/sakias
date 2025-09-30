@@ -1,0 +1,23 @@
+{
+  "name": "sakias",
+  "version": "1.0.0",
+  "description": "Documentação do desenvolvimento do sistema de edição de assinatura de e-mail para o grupo de empresas, Center Festas, Deccora e Addorna.",
+  "main": "index.js",
+  "scripts": {
+    "compilar": "sass --watch scss/main.scss:css/styles.css",
+    "observar": "sass scss/main.scss css/styles.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiocnascimento/sakias.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabiocnascimento/sakias/issues"
+  },
+  "homepage": "https://github.com/fabiocnascimento/sakias#readme",
+  "dependencies": {
+    "lucide": "^0.544.0"
+  }
+}

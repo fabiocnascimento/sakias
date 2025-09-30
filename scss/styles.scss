@@ -1,116 +1,285 @@
+@use "./variables" as *;
 /* Estilos principais extraídos do editor.html */
-* {
-  padding: 0;
-  margin: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: #f9f8f4;
-  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  min-height: 100vh;
+  line-height: 1.5;
+  background: $primary-light;
+  font-family: $body-family;
+  gap: $spacing-xl;
 }
+
 header {
   display: flex;
   flex-direction: row;
   width: 100%;
-  align-items: center;
+  align-items: left;
   padding: 2rem;
   gap: 2rem;
+  background-color: transparent;
+
+  .primary-logo img {
+    max-width: 160px;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
+  .secondary-logo img {
+    max-width: 80px;
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
 }
-.primary-logo {
+
+main {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   justify-content: center;
-  margin-right: 2rem;
+  padding: $spacing-lg $spacing-8xl;
+
+  .info-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: $spacing-2xl $spacing-xl;
+
+    h1 {
+      font-family: $display-family;
+      font-size: $display-md;
+      font-weight: $display-black;
+      line-height: 130%;
+      color: $primary-dark;
+      margin-bottom: $spacing-sm;
+
+      span {
+        font-weight: $display-light;
+      }
+    }
+    p {
+      font-family: $body-family;
+      font-size: $body-base;
+      font-weight: $body-regular;
+      line-height: 150%;
+      color: $secondary-dark;
+      margin-top: $spacing-xs;
+    }
+  }
+  .editor {
+    display: flex;
+    flex-direction: row;
+    flex: 0.9;
+    background-color: $secondary-light;
+    padding: $spacing-2xl $spacing-xl;
+    gap: $spacing-2xl;
+    border-radius: $radius-xl;
+  }
+
+  .form__container,
+  .template {
+    flex: 1;
+    flex-direction: column;
+    padding: $spacing-sm;
+  }
 }
-.primary-logo img {
-  max-width: 160px;
-  height: auto;
+
+.form {
+  position: relative;
   width: 100%;
-  object-fit: contain;
+  height: 3rem;
+  margin: $spacing-md 0;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: $border-regular solid $tertiary-light;
+    border-radius: $radius-sm;
+    font-family: $body-family;
+    font-size: $body-small;
+    font-weight: $body-regular;
+    color: $primary-dark;
+    padding: $spacing-sm $spacing-md;
+    background-color: none;
+    transition: top 100ms ease-in, left 100ms ease-in, font-size 100ms ease-in;
+    &:hover {
+      border-color: $primary-dark;
+    }
+
+    /* Change border when input focus*/
+
+    &:focus {
+      border-color: $primary-success;
+    }
+  }
+  &__label {
+    position: absolute;
+    left: 1rem;
+    top: 0.8rem;
+    padding: 0 0.5rem;
+    color: $tertiary-dark;
+    cursor: text;
+    transition: top 100ms ease-in, left 100ms ease-in, font-size 100ms ease-in;
+    background: transparent;
+    font-family: $body-family;
+    font-size: $body-base;
+    font-weight: $body-regular;
+  }
 }
-.secondary-logo {
+/* 
+1. When the input is in the focus state
+reduce the size of the label and move upwards 
+
+2. Keep label state when content is in input field 
+*/
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+  font-weight: $body-black;
+  background: $secondary-light;
+}
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  margin: $spacing-md 0;
+  z-index: 1;
+}
+
+.form__select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-family: $body-family;
+  font-size: $body-base;
+  color: $tertiary-dark;
+  border: $border-regular solid $tertiary-light;
+  border-radius: $radius-sm;
+  background-color: $secondary-light;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 24px 24px;
+  transition: top 100ms ease-in, left 100ms ease-in, font-size 100ms ease-in;
+  z-index: 2;
+
+  &:hover {
+    border-color: $primary-dark;
+  }
+
+  &:focus {
+    border-color: $primary-dark;
+    outline: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 24px 24px;
+    box-shadow: 0 0 0 2px rgba($primary-dark, 0.2);
+  }
+}
+
+.form__select option {
+  position: absolute;
+  font-family: $body-family;
+  font-size: 16px;
+  line-height: 200%;
+  color: $secondary-dark;
+  background: $secondary-light;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.form__select-label {
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  color: $tertiary-dark;
+  background: $secondary-light;
+  padding: 0 0.3rem;
+  font-size: $body-base;
+  z-index: 3;
+}
+
+.form__select:focus + .form__select-label,
+.form__select:not([value="none"]):not(:focus) + .form__select-label {
+  top: -0.7rem;
+  left: 8px;
+  font-size: 0.8rem;
+  font-weight: $body-black;
+  background: $secondary-light;
+  padding: 0 0.4rem;
+  z-index: 4;
+}
+
+.actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: $spacing-md;
+  margin: $spacing-3xl $spacing-lg 0 $spacing-lg;
 }
-.secondary-logo img {
-  max-width: 80px;
-  height: auto;
-  width: 100%;
-  object-fit: contain;
-}
-.wrapper {
-  flex-wrap: nowrap;
-}
-.container {
-  width: 100%;
-  max-width: 600px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.info-content {
-  display: flex;
-}
-.editor {
+
+.btn {
   display: flex;
   flex-direction: row;
-  width: 80%;
-  background-color: #fff;
-  padding: 32px;
-  gap: 40px;
-  border-radius: 16px;
-  border-color: #ccc;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-}
-.template {
-  display: flex;
-  flex-direction: column;
-  min-width: 600px;
-  width: 40%;
-  gap: 80px;
-}
-h1 {
-  font-size: 26px;
-  font-weight: 400;
-}
-hr {
-  border: 0;
-  border-bottom: 1px solid #ccc;
-  height: 0;
-  margin: 10px 0;
-}
-fieldset {
-  border: 0;
-  margin: 0 0 10px 0;
-  padding: 0;
-}
-input[type="text"] {
-  width: 100%;
-  border: 1px solid #e1e1e1;
-  padding: 10px;
-  font-size: 16px;
-  margin: 0;
-  outline: none;
-  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
-  box-shadow: none;
-  box-sizing: border-box;
-}
-#copiar {
-  background: #cd9d53;
-  border: 0;
-  color: white;
-  border-radius: 10px;
-  font-size: 16px;
-  padding: 10px 16px;
-  cursor: pointer;
-}
-#copiar:hover {
-  background: #b98637;
+  align-items: center;
+  justify-content: center;
+  min-width: 19rem;
+  height: 4rem;
+  gap: $spacing-md;
+  padding: 0 $spacing-2xl;
+  font-family: $body-family;
+  font-size: $body-base;
+  font-weight: $body-black;
+  color: $primary-light;
+  background: $dark-gray-gradient;
+  border: none;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background: $light-gray-gradient;
+    color: $primary-light;
+    box-shadow: $shadow-light;
+  }
+
+  &:active {
+    scale: 1.08;
+    box-shadow: none;
+    background: $success-gradient;
+    color: $primary-dark;
+    transition: transform 100ms ease-in;
+  }
+
+  &:disabled {
+    background: $quartary-dark;
+    color: $secondary-light;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  i {
+    font-size: 1.2rem;
+  }
 }
