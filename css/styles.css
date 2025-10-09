@@ -86,15 +86,18 @@ main {
   width: 100%;
   height: 100%;
   justify-content: center;
+  vertical-align: middle;
   padding: 1.5rem 5.5rem;
 }
 main .info-content {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  align-self: center;
+  width: 80%;
   padding: 2.5rem 2rem;
 }
 main .info-content h1 {
+  width: 50%;
   font-family: "Parkinsans", Montserrat, Arial, Helvetica, sans-serif;
   font-size: 1.75rem;
   font-weight: 800;
@@ -116,7 +119,10 @@ main .info-content p {
 main .editor {
   display: flex;
   flex-direction: row;
-  flex: 0.9;
+  flex: 0.5;
+  align-self: center;
+  justify-content: center;
+  width: 80%;
   background-color: #ffffff;
   padding: 2.5rem 2rem;
   gap: 2.5rem;
@@ -269,11 +275,11 @@ reduce the size of the label and move upwards
 
 .actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  margin: 3rem 1.5rem 0 1.5rem;
+  margin: 3rem 0 1.5rem 0;
 }
 
 .btn {
@@ -303,16 +309,62 @@ reduce the size of the label and move upwards
   box-shadow: none;
   background: linear-gradient(-85deg, #219653 0%, #a6d5ba 100%);
   color: #1e1e1e;
-  transition: transform 100ms ease-in;
+  transition: holdActive 5s forward;
+}
+@keyframes holdActive {
+  0% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .btn:disabled {
   background: #bdbdbd;
   color: #ffffff;
   cursor: not-allowed;
   box-shadow: none;
+  opacity: 0.6;
 }
 .btn i {
   font-size: 1.2rem;
+}
+
+.status-message {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-family: "Relaway", Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #219653;
+  height: 2rem;
+  padding: 1rem 0;
+}
+
+.preview {
+  width: 600px;
+  display: none;
+}
+
+#preview-placeholder {
+  width: 600px;
+  height: 220px;
+  background: #f0f0f0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #4f4f4f;
+  font-family: "Relaway", Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-weight: 400;
+  display: flex;
 }
 
 /*# sourceMappingURL=styles.css.map */

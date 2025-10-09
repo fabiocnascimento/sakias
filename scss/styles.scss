@@ -45,15 +45,18 @@ main {
   width: 100%;
   height: 100%;
   justify-content: center;
+  vertical-align: middle;
   padding: $spacing-lg $spacing-8xl;
 
   .info-content {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-self: center;
+    width: 80%;
     padding: $spacing-2xl $spacing-xl;
 
     h1 {
+      width: 50%;
       font-family: $display-family;
       font-size: $display-md;
       font-weight: $display-black;
@@ -77,7 +80,10 @@ main {
   .editor {
     display: flex;
     flex-direction: row;
-    flex: 0.9;
+    flex: 0.5;
+    align-self: center;
+    justify-content: center;
+    width: 80%;
     background-color: $secondary-light;
     padding: $spacing-2xl $spacing-xl;
     gap: $spacing-2xl;
@@ -234,11 +240,11 @@ reduce the size of the label and move upwards
 
 .actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   gap: $spacing-md;
-  margin: $spacing-3xl $spacing-lg 0 $spacing-lg;
+  margin: $spacing-3xl 0 $spacing-lg 0;
 }
 
 .btn {
@@ -269,7 +275,19 @@ reduce the size of the label and move upwards
     box-shadow: none;
     background: $success-gradient;
     color: $primary-dark;
-    transition: transform 100ms ease-in;
+    transition: holdActive 5s forward;
+  }
+
+  @keyframes holdActive {
+    0% {
+      transform: scale(0.9);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   &:disabled {
@@ -277,9 +295,44 @@ reduce the size of the label and move upwards
     color: $secondary-light;
     cursor: not-allowed;
     box-shadow: none;
+    opacity: 0.6;
   }
 
   i {
     font-size: 1.2rem;
   }
+}
+
+.status-message {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-family: $body-family;
+  font-size: $body-base;
+  font-weight: $body-black;
+  color: $primary-success;
+  height: 2rem;
+  padding: $spacing-md 0;
+}
+
+.preview {
+  width: 600px;
+  display: none; // pode ser trocado por flex se quiser visível por padrão
+}
+#preview-placeholder {
+  width: 600px;
+  height: 220px;
+  background: $tertiary-light;
+  display: none; // pode ser trocado por flex se quiser visível por padrão
+  align-items: center;
+  justify-content: center;
+  color: $tertiary-dark; // texto preto
+  font-family: $body-family;
+  font-size: $body-base;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ddd; // opcional: só pra dar contraste
+  font-weight: $body-regular;
+  // garante centralização de qualquer tipo de texto ou elemento interno
+  display: flex;
 }

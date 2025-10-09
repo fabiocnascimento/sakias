@@ -5,13 +5,125 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sakiaz - Editor de Assinaturas</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=copy_all" />
+  <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
+  <!-- <header class="editor-header">
+    <div class="primary-logo">
+      <img src="assets/logo/logo-center-festas.png" alt="Logo Centter Festas">
+    </div>
+    <div class="secondary-logo first-logo">
+      <img src="assets/logo/logo-deccora.png" alt="Deccora">
+    </div>
+    <div class="secondary-logo second-logo">
+      <img src="assets/logo/logo-addorna.png" alt="Addorna">
+    </div>
+  </header> -->
+  <main>
+    <div class="info-content">
+      <h1>Informe nos campo abaixo <span> dados que você deseja na assinatura de e-mail. </span> </h1>
+      <p>Caso o campo telefone adicional não seja preenchido, ele ficará invisível na assinatura.</p>
+    </div>
+    <div class="editor">
+      <div class="form__container">
+        <form id="assinaturaForm">
+          <!--Dropdrown-->
+          <div class="dropdown-wrapper">
+            <select id="brand-select" class="form__select" required>
+              <option value="none" selected hidden>Selecione a Marca</option>
+              <option value="addorna">Addorna</option>
+              <option value="center-festas">Center Festas</option>
+              <option value="deccora">Deccora</option>
+            </select>
+            <label for="brand-select" class="form__select-label">Selecione a Marca</label>
+          </div>
+          <!--Nome-->
+          <div class="form">
+            <input type="text" id="nome" class="form__input" placeholder=" " spellcheck="false" autocomplete="off">
+            <label for="nome" class="form__label">Nome</label>
+          </div>
+          <!--Cargo-->
+          <div class="form">
+            <input type="text" id="cargo" class="form__input" placeholder=" " spellcheck="false" autocomplete="off">
+            <label for="cargo" class="form__label">Seu Cargo</label>
+          </div>
+          <!--Whatsapp-->
+          <div class="form">
+            <input type="text" id="whatsapp" class="form__input" placeholder=" " spellcheck="false" autocomplete="off">
+            <label for="whatsapp" class="form__label">Whatsapp</label>
+          </div>
+          <!--Telefone Adicional-->
+          <div class="form">
+            <input type="text" id="telefone-adicional" class="form__input" placeholder=" " spellcheck="false" autocomplete="off">
+            <label for="telefone-adicional" class="form__label">Telefone Adicional</label>
+          </div>
+        </form>
+      </div>
+      <div class="template">
+        <!-- Template Copiado do Código Antigo -->
+        <div id="preview-placeholder">Selecione uma marca para visualizar a assinatura</div>
+        <div class="preview">
+          <table id="assinatura" width="600" valign="top" aborder="0" cellpadding="0" cellspacing="16, 8" role="presentation" style="display: inline; vertical-align: top;">
+            <tbody>
+              <tr>
+                <td id="imagem" width="150" style="vertical-align: top;">
+                  <img id="logo-empresa" src="assets/variables/deccora/deccora-logo.png" width="150" />
+                </td>
+                <td id="cor-divisoria" width="2" style="background-color: #054236; font-size: 0;">
+                  &nbsp;
+                </td>
+                <td width="450" valign="top" style="padding: 0, 16px;">
+                  <p id="a_nome" style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 900; color: #1E1E1E; margin: 0 !important; padding: 0; text-transform: uppercase; line-height: 135%;">Nome</p>
+                  <p id="a_cargo" style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 14x; font-weight: 400  ; color: #054236; margin: 0; padding: 0; line-height: 135%;">Cargo</p>
+
+                  <p id="a_whatsapp" style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 400; color: #1E1E1E; display: block; margin-top: 16px; margin-bottom: 16px; padding: 0; line-height: 135%;">
+                    <img id="ico_whatsapp" src="assets/variables/deccora/deccora-whats.png" style="display: inline-block; margin-right: 4px; vertical-align: middle;"> WhatsApp
+                  </p>
+                  <p style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; color: #1E1E1E; margin-top: 8; margin-bottom: 0; padding: 0; line-height: 135%;"> <img id="ico-telefone" src="assets/variables/deccora/deccora-telefone.png" style="display: inline-block; margin-right: 4px; vertical-align: middle;"> 16 <span style="font-weight: 700;"> 3512 2200 </span></p>
+                  <p id="a_tel-opcional" style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; color: #1E1E1E; display: block; margin-top: 0; margin-left: 26px; padding: 0; line-height: 135%;"> </p>
+
+                  <p style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 400; color: #1E1E1E; margin-bottom: 16px; padding: 0; line-height: 135%;"> <img id="ico-local" src="assets/variables/deccora/deccora-endereco.png" style="display: inline-block; margin-right: 4px; vertical-align: middle;"> <span style="font-weight: 900;"> Av. Nove de Julho, 71 </span>| Centro, Ribeirão Preto - SP</p>
+
+                  <p style="font-family: Montserrat, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 300; color: #1E1E1E; margin: 16; padding: 0; line-height: 150%; display: inline-block; vertical-align: middle;">
+
+                    <a id="instagram" href="https://www.instagram.com/decoradenovo"><img id="ico-instagram" src="assets/variables/deccora/deccora-insta.png" style="display: inline-block; margin-bottom: 0; vertical-align: middle;"></a>
+
+                    <a id="site" href="https://www.deccora.com.br"><img id="ico-site" src="assets/variables/deccora/deccora-site.png" style="display: inline-block; margin-left: 40; margin-bottom: 0; vertical-align: middle;"></a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="actions">
+          <button id="copiar" class="btn" type="button"> <span class="material-symbols-outlined">
+              copy_all
+            </span> Copiar Assinatura </button>
+
+        </div>
+        <div class="status-message"> <span id="status"></span> </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts do Gerador de Assinatura -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Development version -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Script Lucide Icons -->
+  <!-- Production version -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/script.js"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 
 </body>
 
